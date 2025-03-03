@@ -21,7 +21,6 @@ body {
     min-height: 100vh;
 }
 
-/* Левая колонка */
 .sidebar {
     width: 300px;
     padding: 30px;
@@ -116,7 +115,6 @@ body {
     filter: none;
 }
 
-/* Правая колонка */
 .main-content {
     flex: 1;
     padding: 40px;
@@ -280,7 +278,6 @@ h2 {
     text-decoration: underline;
 }
 
-/* Адаптивные стили */
 @media (max-width: 768px) {
     .container {
         flex-direction: column;

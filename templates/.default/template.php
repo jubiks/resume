@@ -8,8 +8,10 @@ if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED!==true) die();
 use Bitrix\Main\Localization\Loc;
 
 $this->addExternalCss("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css");
+
 $this->addExternalCss($this->GetFolder() . "/css/slick.css");
 $this->addExternalCss($this->GetFolder() . "/css/slick-theme.css");
+$this->addExternalCss($this->GetFolder() . "/css/dracula.css");
 $this->addExternalJs($this->GetFolder() . "/js/slick.min.js");
 ?>
 
@@ -119,7 +121,7 @@ $this->addExternalJs($this->GetFolder() . "/js/slick.min.js");
                 <?endforeach?>
             </section>
             <?endif?>
-            <a href="https://github.com/jubiks/resume" class="copyright" target="_blank"><i class="fab fa-github"></i>&nbsp;<?=Loc::getMessage("COPYRIGHT_TEXT")?></a>
+            <a href="https://github.com/jubiks/resume" class="copyright" target="_blank"><?=Loc::getMessage("COPYRIGHT_TEXT")?></a>
         </main>
     </div>
 <? endif ?>

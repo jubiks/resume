@@ -1,0 +1,180 @@
+body {
+    background-color: #282a36;
+    color: #f8f8f2;
+}
+
+.container {
+    background: #44475a;
+}
+
+.sidebar {
+    background: #44475a;
+    border-right: 1px solid #6272a4;
+}
+
+.actions button {
+    background: rgba(189, 147, 249, 0.1);
+    border: 1px solid #bd93f9;
+    color: #bd93f9;
+    border-radius: 4px;
+}
+
+.actions button:hover {
+    background: #bd93f9;
+    color: #282a36;
+}
+
+.sidebar a {
+    color: #8be9fd;
+}
+
+.sidebar a:hover {
+    color: #50fa7b;
+    text-decoration: none;
+}
+
+.contacts i {
+    color: #bd93f9;
+}
+
+.main-content {
+    background: #282a36;
+    color: #f8f8f2;
+}
+
+h1, h2, h3 {
+    color: #f8f8f2;
+}
+
+h2 {
+    border-bottom: 2px solid #ff79c6;
+    color: #ff79c6;
+}
+
+.description-text {
+    color: #f8f8f2;
+}
+
+.skills-list li {
+    background: #6272a4 !important;
+    color: #f8f8f2 !important;
+    border: 1px solid #bd93f9 !important;
+    margin: 4px;
+}
+
+.experience-item {
+    background: rgba(40, 42, 54, 0.5);
+    padding: 15px;
+    border-radius: 5px;
+    border-left: 3px solid #50fa7b;
+    margin-bottom: 20px;
+}
+
+.project-item {
+    background: rgba(40, 42, 54, 0.5);
+    padding: 15px;
+    border-radius: 5px;
+    border-left: 3px solid #50fa7b;
+}
+
+.project-item a {
+    color: #8be9fd;
+}
+
+.project-item a:hover {
+    color: #50fa7b;
+}
+
+.technology-stack span {
+    background: #6272a4 !important;
+    color: #50fa7b !important;
+    border: 1px solid #50fa7b !important;
+}
+
+.certificate-image {
+    border: 2px solid #6272a4;
+    border-radius: 5px;
+}
+
+.copyright {
+    color: #6272a4;
+}
+
+.fa-phone { color: #50fa7b; }
+.fa-envelope { color: #8be9fd; }
+.fa-telegram { color: #bd93f9; }
+.fa-linkedin { color: #ff79c6; }
+.fa-github { color: #f8f8f2; }
+.fa-map-marker-alt { color: #ffb86c; }
+
+#phoneContainer:hover .phone-hidden {
+    filter: blur(1px);
+}
+
+@media print {
+    body {
+        background-color: #fff !important;
+        color: #000 !important;
+    }
+
+    .container {
+        background: #fff !important;
+        box-shadow: none !important;
+    }
+
+    .sidebar {
+        background: #f8f8f8 !important;
+        color: #000 !important;
+        border-right: none !important;
+    }
+
+    .main-content {
+        background: #fff !important;
+        color: #000 !important;
+    }
+
+    .description-text {
+        color: #000 !important;
+    }
+
+    h1, h2, h3 {
+        color: #000 !important;
+    }
+
+    h2 {
+        border-bottom-color: #ccc !important;
+    }
+
+    .skills-list li,
+    .technology-stack span {
+        background: #f0f0f0 !important;
+        color: #000 !important;
+        border-color: #ccc !important;
+    }
+
+    .experience-item {
+        background: transparent !important;
+        border-left-color: #ccc !important;
+    }
+
+    a {
+        color: #000 !important;
+        text-decoration: none !important;
+    }
+
+    .actions {
+        display: none !important;
+    }
+
+    .phone-hidden {
+        filter: none !important;
+    }
+
+    .contacts i {
+        color: #000 !important;
+    }
+
+    .certificate-image {
+        border: 1px solid #ddd !important;
+    }
+}
