@@ -272,6 +272,14 @@ h2 {
     border: 1px solid transparent;
 }
 
+.copyright {
+    font-size: 11px;
+    text-decoration: none;
+}
+.copyright:hover {
+    text-decoration: underline;
+}
+
 /* Адаптивные стили */
 @media (max-width: 768px) {
     .container {

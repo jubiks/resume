@@ -6,3 +6,4 @@ $MESS['SKILLS_TITLE'] = "Навыки";
 $MESS['EXPERIENCE_TITLE'] = "Опыт работы";
 $MESS['PORTFOLIO_TITLE'] = "Ключевые проекты";
 $MESS['TECHNOLOGY_STACK'] = "Технологии";
+$MESS['COPYRIGHT_TEXT'] = "Реализация данного компонента на&nbsp;GitHub";

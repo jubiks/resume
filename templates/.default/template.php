@@ -119,6 +119,7 @@ $this->addExternalJs($this->GetFolder() . "/js/slick.min.js");
                 <?endforeach?>
             </section>
             <?endif?>
+            <a href="https://github.com/jubiks/resume" class="copyright" target="_blank"><i class="fab fa-github"></i>&nbsp;<?=Loc::getMessage("COPYRIGHT_TEXT")?></a>
         </main>
     </div>
 <? endif ?>
