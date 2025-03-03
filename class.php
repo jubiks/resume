@@ -48,6 +48,7 @@ class ResumeComponent extends CBitrixComponent implements Controllerable
     protected function initParams()
     {
         $this->arParams["RESUME_ID"] = (int)$this->arParams["RESUME_ID"] ?: null;
+        $this->arParams['CACHE_TIME'] = $this->arParams["CACHE_TIME"] ?: 3600;
     }
 
     protected function prepareResult()
@@ -82,14 +83,13 @@ class ResumeComponent extends CBitrixComponent implements Controllerable
                 '=ACTIVE' => 'Y'
             ],
             'cache' => [
-                'ttl' => 86400,
+                'ttl' => $this->arParams['CACHE_TIME'],
                 'cache_joins' => true
             ]
         ]);
 
         if ($obResume = $dbElements->fetchObject()) {
-            //d($obResume);
-
+            $arParams = $this->arParams;
             $this->arResult = [
                 'ID' => $obResume->Get('ID'),
                 'NAME' => $obResume->Get('NAME'),
@@ -116,7 +116,7 @@ class ResumeComponent extends CBitrixComponent implements Controllerable
                 'CERTIFICATES' => array_map(static function($file) {
                     return CFile::GetFileArray($file->getValue());
                 }, $obResume->Get('CERTIFICATES')->getAll()),
-                'EXPERIENCE' => array_map(static function($experience) {
+                'EXPERIENCE' => array_map(static function($experience) use ($arParams) {
                     $dbExperience = Experience::getList([
                         'select' => [
                             'ID',
@@ -135,7 +135,7 @@ class ResumeComponent extends CBitrixComponent implements Controllerable
                             '=ACTIVE' => 'Y'
                         ],
                         'cache' => [
-                            'ttl' => 86400,
+                            'ttl' => $arParams['CACHE_TIME'],
                             'cache_joins' => true
                         ]
                     ]);
@@ -155,7 +155,7 @@ class ResumeComponent extends CBitrixComponent implements Controllerable
 
                     return null;
                 }, $obResume->Get('EXPERIENCE')->getAll()),
-                'PORTFOLIO' => array_map(static function($portfolio) {
+                'PORTFOLIO' => array_map(static function($portfolio) use ($arParams) {
                     $dbPortfolio = PortfolioTable::getList([
                         'select' => [
                             'ID',
@@ -173,7 +173,7 @@ class ResumeComponent extends CBitrixComponent implements Controllerable
                             '=ACTIVE' => 'Y'
                         ],
                         'cache' => [
-                            'ttl' => 86400,
+                            'ttl' => $arParams['CACHE_TIME'],
                             'cache_joins' => true
                         ]
                     ]);
@@ -215,8 +215,8 @@ class ResumeComponent extends CBitrixComponent implements Controllerable
             }
 
             $ipropValues = new \Bitrix\Iblock\InheritedProperty\ElementValues(
-                $obResume->getIblockId(), // ID инфоблока
-                $obResume->getId() // ID элемента
+                $obResume->getIblockId(),
+                $obResume->getId()
             );
             $this->arResult['IPROPERTY_VALUES'] = $ipropValues->getValues();
 
@@ -230,7 +230,7 @@ class ResumeComponent extends CBitrixComponent implements Controllerable
         global $APPLICATION;
 
         $this->initParams();
-/*
+
         if ($this->startResultCache($this->arParams['CACHE_TIME'])) {
             if (!$this->checkRequiredParams())
             {
@@ -250,9 +250,6 @@ class ResumeComponent extends CBitrixComponent implements Controllerable
 
             $this->IncludeComponentTemplate();
         }
-*/
-        $this->GetData();
-        $this->IncludeComponentTemplate();
 
         if($this->arResult['ID'] && !empty($this->arResult['IPROPERTY_VALUES']['ELEMENT_META_TITLE'])) {
             $APPLICATION->SetTitle($this->arResult['IPROPERTY_VALUES']['ELEMENT_META_TITLE']);
@@ -293,7 +290,7 @@ class ResumeComponent extends CBitrixComponent implements Controllerable
                 '=ACTIVE' => 'Y'
             ],
             'cache' => [
-                'ttl' => 86400,
+                'ttl' => $this->arParams['CACHE_TIME'],
                 'cache_joins' => true
             ]
         ]);
